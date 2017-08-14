@@ -18,8 +18,9 @@ Mat dealFrameDiff(Mat gray,Mat backFrame)
 
 void before(Mat &back)
 {
-    int erosion_size = 3;
-    int dilation_size = 9;
+    int erosion_size = 4;
+    int dilation_size = 8;
+    
     Mat ErodeElement =
             getStructuringElement( MORPH_RECT,
                                   Size( 2*erosion_size + 1, 2*erosion_size+1 ),
@@ -28,12 +29,18 @@ void before(Mat &back)
             getStructuringElement( MORPH_RECT,
                                    Size( 2*dilation_size + 1, 2*dilation_size+1 ),
                                    Point( dilation_size, dilation_size ) );
-
-    for(int i = 0;i<=3;i++)
+    int erosion_size1 = 6;
+    Mat ErodeElement1 =
+            getStructuringElement( MORPH_RECT,
+                                  Size( 2*erosion_size1 + 1, 2*erosion_size1 + 1 ),
+                                  Point( erosion_size1, erosion_size1 ) );
+    erode(back,back,ErodeElement1);
+    for(int i = 0;i<=5;i++)
     {
         medianBlur(back,back,3);
-        erode(back,back,ErodeElement);
+
         dilate(back,back,DilateElement);
+        erode(back,back,ErodeElement);
     }
 
 }
