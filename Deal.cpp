@@ -54,3 +54,17 @@ void peopleDeal(Rect &boundRect,int count)
 
 
 }
+
+void videoDeal(Mat &frame)
+{
+    int col = frame.cols;
+    int row = frame.rows;
+    while(frame.cols>800)
+    {
+        col /=2;
+        row /=2;
+        resize(frame,frame,Size(col,row),0,0,2);
+    }
+   
+
+}
