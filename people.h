@@ -33,3 +33,6 @@ Mat deal(Mat frame,Mat foreground,Mat foreFrame,int &people);
 void colorSpaceTrans(Mat frame,Mat &gray);
 void StopDeal(Mat frame,bool &key);
 void startDeal(Mat frame,bool &key);
+void peopleDeal(Rect &,int count);
+void drawRect(Mat show,Rect boundRect,int count);
+int dete(Mat &dst)
