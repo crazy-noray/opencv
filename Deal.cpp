@@ -20,7 +20,7 @@ Mat deal(Mat frame,Mat foreground,Mat foreFrame,int &people)
 void StopDeal(Mat frame,bool &key)
 {
     text(frame,"On",5,20,3);
-    if(waitKey(10) == 27)
+    if(waitKey(10) == ' ' )
     {
         exit(0);
     }
@@ -33,8 +33,24 @@ void startDeal(Mat frame,bool &key)
 {
     text(frame,"Off",5,20,3);
     if(waitKey(10) == 27)
+        key= true;
+    if(waitKey(10) == ' ')
+    {
         exit(0);
-    if(waitKey(10) == 'q')
-        key = true;
+    }
+
+
+}
+void peopleDeal(Rect &boundRect,int count)
+{
+
+    if(count>=3)
+    {
+          if(boundRect.height<128)
+              boundRect.height = 128;
+          if(boundRect.width<64)
+              boundRect.width = 64;
+    }
+
 
 }
