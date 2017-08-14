@@ -36,3 +36,4 @@ void startDeal(Mat frame,bool &key);
 void peopleDeal(Rect &,int count);
 void drawRect(Mat show,Rect boundRect,int count);
 int dete(Mat &dst)
+void videoDeal(Mat &frame)；
