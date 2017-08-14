@@ -37,7 +37,7 @@ int main()
         double time = (double)getTickCount();
 
         capture>>frame;
-        resize(frame,frame,Size(640,360),0,0,2);
+        videoDeal(frame);
 
         Mog(frame,foreground,0.001);
         Mog.getBackgroundImage(background);
